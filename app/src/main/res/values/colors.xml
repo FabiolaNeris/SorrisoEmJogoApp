@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <!--Cores Primárias -->
+    <color name="primaria">#003EA6</color>
+
+    <!--Cores Secundarias -->
+    <color name="secundaria">#99003EA6</color>
+
+    <!--Cor de backgorund -->
+    <color name="corFundo">#F86AE9FF</color>
+</resources>

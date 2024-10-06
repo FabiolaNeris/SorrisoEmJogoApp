@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SorrisoEmJogo" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!--config cores primárias -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/primaria</item>
+        <item name="android:textColor">@color/primaria</item>
+        <item name="android:textColorHint">@color/secundaria</item>
+        <item name="android:editTextColor">@color/primaria</item>
+
+        <!--Config cor de fundo -->
+        <item name="android:windowBackground">@color/corFundo</item>
+    </style>
+
+    <style name="Theme.SorrisoEmJogo" parent="Base.Theme.SorrisoEmJogo" />
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="175dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgSair"
+        app:srcCompat="@drawable/whatsapp_image_2024_09_29_at_23_48_28_removebg_preview" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Dicas de saúde bucal"
+        android:textColor="@color/primaria"
+        android:textColorLink="@color/primaria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:strokeColor="@color/primaria"
+        app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Agendar consulta"
+        android:textColor="@color/primaria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:strokeColor="@color/primaria"
+        app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Pontuação"
+        android:textColor="@color/primaria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:strokeColor="@color/primaria"
+        app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Registrar sorriso"
+        android:textColor="@color/primaria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:strokeColor="@color/primaria"
+        app:strokeWidth="3dp" />
+
+    <ImageView
+        android:id="@+id/imgSair"
+        android:layout_width="31dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/remover" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
