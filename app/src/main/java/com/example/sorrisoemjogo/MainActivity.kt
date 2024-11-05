@@ -10,46 +10,63 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.sorrisoemjogo.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class MainActivity : AppCompatActivity() {
+    private val binding by lazy{
+        ActivityMainBinding.inflate(layoutInflater)
+    }
 
-    private lateinit var userEmail: EditText
-    private lateinit var userPassword : EditText
-    private lateinit var loginButton: ImageView
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
 
-        userEmail = findViewById(R.id.textEmail)
-        userPassword = findViewById(R.id.textSenha)
-        loginButton = findViewById(R.id.imgLogin)
+        if(auth.currentUser != null){
+            startActivity(Intent(this, HomePage::class.java))
+            finish()
+        }
 
+        binding.imgLogin.setOnClickListener{
+            val email = binding.textEmail.text.toString()
+            val senha = binding.textSenha.text.toString()
 
-        loginButton.setOnClickListener{
-            val user = userEmail.text.toString()
-            val senha = userPassword.text.toString()
-
-
-            if(CredenciaisValidas (user, senha)){
-                Toast.makeText(this, "Login Efetuado", Toast.LENGTH_SHORT).show()
-
-               val intent = Intent(this, HomePage::class.java)
-                startActivity(intent)
-                finish()
-            }else{
-                Toast.makeText(this, "Senha Incorreta", Toast.LENGTH_SHORT).show()
+            if(email.isEmpty() || senha.isEmpty()){
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            auth.signInWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(this){
+                    task ->
+                    if(task.isSuccessful){
+                        startActivity(Intent(this, HomePage::class.java))
+                        finish()
+                    }else{
+                        if(task.exception is FirebaseAuthInvalidUserException){
+                            val intent = Intent(this, TelaCadastro::class.java)
+                            intent.putExtra("email", email)
+                            intent.putExtra("senha", senha)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Erro no login: ${task.exception?.message}",
+                            Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
 
         }
 
     }
 
 
-    private fun CredenciaisValidas(user:String, senha: String):Boolean{
-        return user == "fabiola" && senha == "123456"
-    }
+
+
 }
 

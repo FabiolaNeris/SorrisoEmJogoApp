@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "615661668305",
+    "project_id": "sorriso-em-jogo",
+    "storage_bucket": "sorriso-em-jogo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615661668305:android:67c01b6147d946965002f0",
+        "android_client_info": {
+          "package_name": "com.example.sorrisoemjogo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW_ANVH5B4Kt5JfU6lokA5kcrbvgGELI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
