@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.sorrisoemjogo.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class MainActivity : AppCompatActivity() {
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if(!isValidEmail(email)){
+                Toast.makeText(this, "Email invalido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             auth.signInWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this){
                     task ->
@@ -49,24 +55,56 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this, HomePage::class.java))
                         finish()
                     }else{
-                        if(task.exception is FirebaseAuthInvalidUserException){
-                            val intent = Intent(this, TelaCadastro::class.java)
-                            intent.putExtra("email", email)
-                            intent.putExtra("senha", senha)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, "Erro no login: ${task.exception?.message}",
-                            Toast.LENGTH_SHORT).show()
+                        when(task.exception){
+                            is FirebaseAuthInvalidCredentialsException ->{
+                                val intent = Intent(this, TelaCadastro::class.java)
+                                intent.putExtra("email", email)
+                                intent.putExtra("senha", senha)
+                                startActivity(intent)
+                            }
+                            is FirebaseAuthInvalidUserException  ->{
+                                Toast.makeText(this, "Senha incorreta", Toast.LENGTH_SHORT).show()
+                            }
+                            else ->{
+                                Toast.makeText(
+                                    this,
+                                    "Erro no login: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
                 }
 
         }
 
+        binding.textVEsqueceuSenha.setOnClickListener{
+            val email = binding.textEmail.text.toString()
+
+            if(email.isEmpty()){
+                Toast.makeText(this, "Digite seu email para recuperar a senha",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            auth.sendPasswordResetEmail(email)
+                .addOnCompleteListener{task ->
+                    if(task.isSuccessful){
+                        Toast.makeText(this, "Email de recuperação enviado",
+                        Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Erro ao enviar email de recuperação: ${task.exception?.message}",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+
+        binding.textVNaoTemCadastro.setOnClickListener{
+            startActivity(Intent(this, TelaCadastro::class.java))
+        }
     }
 
-
-
+    private fun isValidEmail(email: String):Boolean{
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
 
 }
 
