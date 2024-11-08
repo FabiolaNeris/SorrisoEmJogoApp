@@ -7,20 +7,30 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.sorrisoemjogo.databinding.ActivityHomePageBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.rpc.context.AttributeContext.Auth
 
 class HomePage : AppCompatActivity() {
 
-    private lateinit var btnSair:ImageView
+
+    private val binding by lazy{
+        ActivityHomePageBinding.inflate(layoutInflater)
+    }
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_home_page)
+        setContentView(binding.root)
 
-        btnSair = findViewById(R.id.imgSair)
+        auth = FirebaseAuth.getInstance()
 
-        btnSair.setOnClickListener{
 
+        binding.imgSair.setOnClickListener{
+
+            auth.signOut()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
