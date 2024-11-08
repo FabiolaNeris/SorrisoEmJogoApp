@@ -41,7 +41,7 @@ class HomePage : AppCompatActivity() {
         }
 
         binding.btnRegistrar.setOnClickListener{
-            val intent = Intent(this, DicasSaudeBucal::class.java)
+            val intent = Intent(this, RegistrarSorriso::class.java)
             startActivity(intent)
         }
     }

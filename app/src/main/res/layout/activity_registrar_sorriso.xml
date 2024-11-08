@@ -7,4 +7,69 @@
     android:layout_height="match_parent"
     tools:context=".RegistrarSorriso">
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="183dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:srcCompat="@drawable/imagem" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="319dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/whatsapp_image_2024_09_29_at_23_48_28_removebg_preview" />
+
+    <Button
+        android:id="@+id/btnCarregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Carregar Imagem"
+        android:textColor="@color/primaria"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#003EA6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:strokeColor="@color/primaria"
+        app:strokeWidth="3dp" />
+
+    <ImageView
+        android:id="@+id/btnHome2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnFoto2"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnFoto2"
+        app:srcCompat="@drawable/botao_de_inicio__1_" />
+
+    <ImageView
+        android:id="@+id/btnFoto2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnProfile2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCarregar"
+        app:srcCompat="@drawable/simbolo_de_interface_de_camera_fotografica_para_botao__1_" />
+
+    <ImageView
+        android:id="@+id/btnProfile2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnFoto2"
+        app:srcCompat="@drawable/perfil__3_" />
 </androidx.constraintlayout.widget.ConstraintLayout>
