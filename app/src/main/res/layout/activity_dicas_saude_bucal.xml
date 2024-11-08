@@ -114,7 +114,7 @@
         app:layout_constraintGuide_begin="668dp" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/btnHome"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
@@ -124,23 +124,23 @@
         app:srcCompat="@drawable/botao_de_inicio__1_" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/btnFoto"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="76dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/btnHome"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/camera__3_" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/btnProfile"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="76dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.734"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/btnFoto"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/perfil__3_" />
 
