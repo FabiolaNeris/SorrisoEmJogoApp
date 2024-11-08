@@ -35,5 +35,14 @@ class HomePage : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnDica.setOnClickListener{
+            val intent = Intent(this, DicasSaudeBucal::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnRegistrar.setOnClickListener{
+            val intent = Intent(this, DicasSaudeBucal::class.java)
+            startActivity(intent)
+        }
     }
 }
